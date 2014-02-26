@@ -1,28 +1,11 @@
 package com.github.signed.kata.chronos;
 
-import javax.swing.JComponent;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
+public interface ChronosClockDisplay {
+    void displayHours(String hours);
 
-public class ChronosClockDisplay {
-    private final JPanel component = new JPanel();
-    private final JLabel hours = new JLabel();
-    private final JLabel minutes = new JLabel();
+    void displayMinutes(String minutes);
 
-    public ChronosClockDisplay() {
-        component.add(hours);
-        component.add(minutes);
-    }
+    void displaySeconds(String seconds);
 
-    public void displayHours(String hours){
-        this.hours.setText(hours);
-    }
-
-    public void displayMinutes(String minutes){
-        this.minutes.setText(minutes);
-    }
-
-    public JComponent component(){
-        return component;
-    }
+    void displayCity(String city);
 }
