@@ -49,3 +49,12 @@ We Chronos the righteous command you to add a button to stop time so we can brin
 
 * A button to stop the time
 * If the button gets pressed a second time, time starts progressing
+
+
+# Run time backwards #
+## Background ##
+Chronos being a huge party animal and show-off always wants to impress his friends at the next revelry.
+He thinks letting the time run backwards will do exactly that.
+
+## Story ##
+We Chronos the sensual require that the time may run backwards to entertain my friends and demonstrate my power.

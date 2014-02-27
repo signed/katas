@@ -11,6 +11,7 @@ public class ChronosClock {
     private final Set<TimeChangedListener> timeChangedListeners = Sets.newHashSet();
     private final SystemTimeClock systemTimeClock = new SystemTimeClock();
     private boolean timeStopped = false;
+    private boolean reverseTime = false;
     private DateTime lastUpdated;
     private DateTime now;
 
@@ -25,7 +26,11 @@ public class ChronosClock {
         }
         DateTime systemTime = systemTimeClock.now();
         long timePassedSinceLastUpdate = systemTime.getMillis() - lastUpdated.getMillis();
-        now = now.plusMillis(Long.valueOf(timePassedSinceLastUpdate).intValue());
+        if (reverseTime) {
+            now = now.minusMillis(Long.valueOf(timePassedSinceLastUpdate).intValue());
+        } else {
+            now = now.plusMillis(Long.valueOf(timePassedSinceLastUpdate).intValue());
+        }
         lastUpdated = systemTime;
         fireTimeChanged();
     }
@@ -35,11 +40,19 @@ public class ChronosClock {
     }
 
     public void toggleTimeProgression() {
-        if(timeStopped){
-            startTime();
-        }else{
-            stopTime();
+        if (timeStopped) {
+            timeStopped = false;
+            lastUpdated = systemTimeClock.now();
+        } else {
+            determineNow();
+            timeStopped = true;
         }
+        notifyProgressionListeners();
+    }
+
+    public void reverseTime() {
+        determineNow();
+        reverseTime = !reverseTime;
     }
 
     public void stopTime() {
@@ -48,7 +61,7 @@ public class ChronosClock {
         notifyProgressionListeners();
     }
 
-    public void startTime() {
+    private void startTime() {
         timeStopped = false;
         lastUpdated = systemTimeClock.now();
         notifyProgressionListeners();

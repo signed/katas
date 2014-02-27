@@ -25,6 +25,13 @@ public class ClockCommandBarPresenter {
                 ClockCommandBarPresenter.this.chronosClock.toggleTimeProgression();
             }
         });
+
+        clockCommandBar.addReverseTimeListener(new ReverseTimeListener() {
+            @Override
+            public void reverseTime() {
+                ClockCommandBarPresenter.this.chronosClock.reverseTime();
+            }
+        });
     }
 
 }
