@@ -37,3 +37,15 @@ We Chronos the glorious demand to see the time at the major stock exchanges in t
     * London
 * This clocks need to display seconds
 * The City has to be displayed for each of this clocks
+
+
+# Stop time #
+## Background ##
+Sometimes when day trading and things get busy, Chronos likes to take some extra extra moments to make his decision.
+To avoid others stealing his big trade he likes to stop time, just for little bit ...
+
+## Story ##
+We Chronos the righteous command you to add a button to stop time so we can bring order and peace to the world.
+
+* A button to stop the time
+* If the button gets pressed a second time, time starts progressing
