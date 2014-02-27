@@ -12,6 +12,12 @@ public class ChronosClockPresenter {
         this.configuration = configuration;
         this.chronosClock = chronosClock;
         this.chronosClockDisplay = chronosClockDisplay;
+        chronosClock.addTimeChangedListener(new TimeChangedListener() {
+            @Override
+            public void timeChanged() {
+                ChronosClockPresenter.this.present();
+            }
+        });
     }
 
     public void present() {
