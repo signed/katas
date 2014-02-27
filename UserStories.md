@@ -57,4 +57,16 @@ Chronos being a huge party animal and show-off always wants to impress his frien
 He thinks letting the time run backwards will do exactly that.
 
 ## Story ##
-We Chronos the sensual require that the time may run backwards to entertain my friends and demonstrate my power.
+We Chronos the sensual require that the time may run backwards to entertain my friends and demonstrate our power.
+
+
+# Edit the displayed time #
+## Backround ##
+
+## Story ##
+We Chronos demand that the displayed time is editable so we can change it.
+
+
+# Display time as Roman Numbers #
+
+# Store time between restarts #

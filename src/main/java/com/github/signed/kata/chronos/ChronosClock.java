@@ -20,6 +20,22 @@ public class ChronosClock {
         this.lastUpdated = systemTimeClock.now();
     }
 
+    public void setHoursOfDayTo(int hours) {
+        now = now.withHourOfDay(hours);
+        fireTimeChanged();
+    }
+
+    public void setMinutesOfHour(int seconds) {
+        now = now.withMinuteOfHour(seconds);
+        fireTimeChanged();
+    }
+
+    public void setSecondsOfHourTo(int seconds) {
+        now = now.withSecondOfMinute(seconds);
+        fireTimeChanged();
+    }
+
+
     public void determineNow() {
         if (timeStopped) {
             return;
