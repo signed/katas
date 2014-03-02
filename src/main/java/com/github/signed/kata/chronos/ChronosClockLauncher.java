@@ -13,17 +13,17 @@ public class ChronosClockLauncher {
         final DateTime dateTime = parseTimeArgument(args[0]);
 
         final ChronosClock chronosClock = new ChronosClock(dateTime);
+        final NumberSystemModel numberSystemModel = new NumberSystemModel(NumberSystem.Arabic);
+
         final ClockCabinet clockCabinet = new ClockCabinet();
-        presentStockExchangeClock(chronosClock, clockCabinet.stockExchangeClock(), PresenterConfiguration.NewYork(), "NewYork");
-        presentStockExchangeClock(chronosClock, clockCabinet.stockExchangeClock(), PresenterConfiguration.London(), "London");
-        new ChronosClockPresenter(chronosClock, clockCabinet.hourMinuteDisplay(), new PresenterConfiguration(PresenterConfiguration.Athens(), "Olympus"));
-        presentStockExchangeClock(chronosClock, clockCabinet.stockExchangeClock(), PresenterConfiguration.Tokyo(), "Tokyo");
-        new ClockCommandBarPresenter(chronosClock, clockCabinet.commandBar());
+        presentStockExchangeClock(chronosClock, clockCabinet.stockExchangeClock(), PresenterConfiguration.NewYork(), "NewYork", numberSystemModel);
+        presentStockExchangeClock(chronosClock, clockCabinet.stockExchangeClock(), PresenterConfiguration.London(), "London", numberSystemModel);
+        new ChronosClockPresenter(chronosClock, clockCabinet.hourMinuteDisplay(), numberSystemModel, new PresenterConfiguration(PresenterConfiguration.Athens(), "Olympus"));
+        presentStockExchangeClock(chronosClock, clockCabinet.stockExchangeClock(), PresenterConfiguration.Tokyo(), "Tokyo", numberSystemModel);
+        new ClockCommandBarPresenter(chronosClock, clockCabinet.commandBar(), numberSystemModel);
 
 
         new ChronosClockUpdater(chronosClock).startUpdating();
-
-
         javax.swing.SwingUtilities.invokeLater(new Runnable() {
             public void run() {
                 createAndShowGUI(clockCabinet.component());
@@ -31,8 +31,8 @@ public class ChronosClockLauncher {
         });
     }
 
-    private static void presentStockExchangeClock(ChronosClock chronosClock, StockExchangeDisplay newYorkDisplay, DateTimeZone timeZone, String city) {
-        new ChronosClockPresenter(chronosClock, newYorkDisplay, new PresenterConfiguration(timeZone, city));
+    private static void presentStockExchangeClock(ChronosClock chronosClock, StockExchangeDisplay newYorkDisplay, DateTimeZone timeZone, String city, NumberSystemModel numberSystemModel) {
+        new ChronosClockPresenter(chronosClock, newYorkDisplay, numberSystemModel, new PresenterConfiguration(timeZone, city));
     }
 
     private static DateTime parseTimeArgument(String arg) {

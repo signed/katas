@@ -6,6 +6,7 @@ class SetHourListener implements EditListener {
     private final ChronosClockDisplay chronosClockDisplay;
     private final ChronosClock chronosClock;
     private final PresenterConfiguration configuration;
+    private final NumberParser numberParser = new NumberParser();
 
     public SetHourListener(ChronosClockDisplay chronosClockDisplay, ChronosClock chronosClock, PresenterConfiguration configuration) {
         this.chronosClockDisplay = chronosClockDisplay;
@@ -16,15 +17,19 @@ class SetHourListener implements EditListener {
     @Override
     public void edit() {
         String userInput = chronosClockDisplay.hourValueFromUser();
-        try {
-            int hours = Integer.parseInt(userInput);
-            if( hours < 0 || hours > 23 ){
-                return;
+        numberParser.parseNumberFrom(userInput, new NumberParser.ParseResult() {
+            @Override
+            public void parsed(int value) {
+                updateModel(value);
             }
-            int hourOfDay = chronosClock.now().withZone(configuration.timeZone).withHourOfDay(hours).withZone(DateTimeZone.UTC).getHourOfDay();
-            chronosClock.setHoursOfDayTo(hourOfDay);
-        } catch (NumberFormatException ex) {
+        });
+    }
+
+    private void updateModel(int hours) {
+        if (hours < 0 || hours > 23) {
             return;
         }
+        int hourOfDay = chronosClock.now().withZone(configuration.timeZone).withHourOfDay(hours).withZone(DateTimeZone.UTC).getHourOfDay();
+        chronosClock.setHoursOfDayTo(hourOfDay);
     }
 }

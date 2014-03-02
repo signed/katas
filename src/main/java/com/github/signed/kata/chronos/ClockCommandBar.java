@@ -13,12 +13,14 @@ public class ClockCommandBar {
     private final JPanel components = new JPanel();
     private final JButton timeToggleButton = new JButton();
     private final JButton reverseTime = new JButton("Reverse time");
+    private final JButton switchNumberSystem = new JButton("Switch number system");
 
     public ClockCommandBar() {
         components.setLayout(new BoxLayout(components, BoxLayout.Y_AXIS));
 
         layoutAndAdd(timeToggleButton);
         layoutAndAdd(reverseTime);
+        layoutAndAdd(switchNumberSystem);
     }
 
     private void layoutAndAdd(JButton button) {
@@ -49,6 +51,15 @@ public class ClockCommandBar {
             @Override
             public void actionPerformed(ActionEvent e) {
                 reverseTimeListener.reverseTime();
+            }
+        });
+    }
+
+    public void addSwitchNumberSystemListener(final SwitchNumberSystemListener switchNumberSystemListener){
+        switchNumberSystem.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                switchNumberSystemListener.switchNumberSystem();
             }
         });
     }

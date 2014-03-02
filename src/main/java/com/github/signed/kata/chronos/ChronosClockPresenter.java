@@ -1,14 +1,21 @@
 package com.github.signed.kata.chronos;
 
+import com.google.common.collect.ImmutableMap;
 import org.joda.time.DateTime;
+
+import java.util.Map;
 
 public class ChronosClockPresenter {
 
     private final ChronosClock chronosClock;
+    private final NumberSystemModel numberSystemModel;
     private final PresenterConfiguration configuration;
     private final ChronosClockDisplay chronosClockDisplay;
+    private final Map<NumberSystem, NumberRenderer> renders = ImmutableMap.of(NumberSystem.Arabic, new ArabicNumberRenderer(), NumberSystem.Roman, new RomanNumberRenderer());
 
-    public ChronosClockPresenter(final ChronosClock chronosClock, final ChronosClockDisplay chronosClockDisplay, final PresenterConfiguration configuration) {
+
+    public ChronosClockPresenter(final ChronosClock chronosClock, final ChronosClockDisplay chronosClockDisplay, NumberSystemModel numberSystemModel, final PresenterConfiguration configuration) {
+        this.numberSystemModel = numberSystemModel;
         this.configuration = configuration;
         this.chronosClock = chronosClock;
         this.chronosClockDisplay = chronosClockDisplay;
@@ -25,33 +32,14 @@ public class ChronosClockPresenter {
 
     public void present() {
         DateTime now = chronosClock.now().toDateTime(configuration.timeZone);
-        chronosClockDisplay.displayHours(String.format("%02d", now.getHourOfDay()));
-        chronosClockDisplay.displayMinutes(String.format("%02d", now.getMinuteOfHour()));
-        chronosClockDisplay.displaySeconds(String.format("%02d", now.getSecondOfMinute()));
         chronosClockDisplay.displayCity(configuration.city);
+        chronosClockDisplay.displayHours(numberRenderer().renderHoursOfDay(now.getHourOfDay()));
+        chronosClockDisplay.displayMinutes(numberRenderer().renderMinutesOfHour(now.getMinuteOfHour()));
+        chronosClockDisplay.displaySeconds(numberRenderer().renderSecondsOfMinute(now.getSecondOfMinute()));
     }
 
-    private static class SetSecondsListener implements EditListener {
-        private final ChronosClockDisplay chronosClockDisplay;
-        private final ChronosClock chronosClock;
-
-        public SetSecondsListener(ChronosClockDisplay chronosClockDisplay, ChronosClock chronosClock) {
-            this.chronosClockDisplay = chronosClockDisplay;
-            this.chronosClock = chronosClock;
-        }
-
-        @Override
-        public void edit() {
-            String secondsAsString = chronosClockDisplay.secondValueFromUser();
-            try{
-                int seconds = Integer.parseInt(secondsAsString);
-                if( seconds < 0 || seconds > 59){
-                    return;
-                }
-                chronosClock.setSecondsOfHourTo(seconds);
-            }catch(NumberFormatException ex){
-                return;
-            }
-        }
+    private NumberRenderer numberRenderer() {
+        return renders.get(numberSystemModel.current());
     }
+
 }

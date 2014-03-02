@@ -69,4 +69,16 @@ We Chronos demand that the displayed time is editable so we can change it.
 
 # Display time as Roman Numbers #
 
+## Background ##
+Chronos got intrigued by the whole programming stuff and wrote a little piece of code.
+Now he wants this to be included into the clock.
+
+## Story ##
+We Chronos the Wise demand the time to be displayed in roman numbers, because we tell you too.
+
+* The [Chronos Contribution](http://stackoverflow.com/a/12968022) you should use
+* Chronos forgot about the '0'. Use 'N' to represent the '0'. Adjust the provided code
+* Switch to roman numbers on demand
+* Chronos can enter Roman or Arabic numbers at any point to change the time
+
 # Store time between restarts #

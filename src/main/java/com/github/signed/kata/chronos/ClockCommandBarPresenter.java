@@ -4,10 +4,12 @@ public class ClockCommandBarPresenter {
 
     private final ChronosClock chronosClock;
     private final ClockCommandBar clockCommandBar;
+    private final NumberSystemModel numberSystemModel;
 
-    public ClockCommandBarPresenter(ChronosClock chronosClock, ClockCommandBar clockCommandBar) {
+    public ClockCommandBarPresenter(ChronosClock chronosClock, ClockCommandBar clockCommandBar, NumberSystemModel numberSystemModel) {
         this.chronosClock = chronosClock;
         this.clockCommandBar = clockCommandBar;
+        this.numberSystemModel = numberSystemModel;
         chronosClock.addTimeProgressionListener(new TimeProgressionListener() {
             @Override
             public void stopped() {
@@ -30,6 +32,12 @@ public class ClockCommandBarPresenter {
             @Override
             public void reverseTime() {
                 ClockCommandBarPresenter.this.chronosClock.reverseTime();
+            }
+        });
+        clockCommandBar.addSwitchNumberSystemListener(new SwitchNumberSystemListener() {
+            @Override
+            public void switchNumberSystem() {
+                ClockCommandBarPresenter.this.numberSystemModel.toggleNumericSystem();
             }
         });
     }
