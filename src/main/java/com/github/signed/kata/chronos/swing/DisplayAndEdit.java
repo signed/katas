@@ -1,5 +1,6 @@
-package com.github.signed.kata.chronos;
+package com.github.signed.kata.chronos.swing;
 
+import com.github.signed.kata.chronos.EditListener;
 import com.google.common.collect.Sets;
 
 import javax.swing.BorderFactory;

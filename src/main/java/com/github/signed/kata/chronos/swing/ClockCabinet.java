@@ -1,4 +1,4 @@
-package com.github.signed.kata.chronos;
+package com.github.signed.kata.chronos.swing;
 
 import javax.swing.JComponent;
 import javax.swing.JPanel;

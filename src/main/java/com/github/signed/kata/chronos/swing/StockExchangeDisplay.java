@@ -1,11 +1,15 @@
-package com.github.signed.kata.chronos;
+package com.github.signed.kata.chronos.swing;
+
+import com.github.signed.kata.chronos.ChronosClockDisplay;
+import com.github.signed.kata.chronos.EditListener;
+import com.github.signed.kata.chronos.swing.DisplayAndEdit;
 
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
 
-public class StockExchangeDisplay implements ChronosClockDisplay{
+public class StockExchangeDisplay implements ChronosClockDisplay {
     private static JLabel separator() {
         return new JLabel(":");
     }

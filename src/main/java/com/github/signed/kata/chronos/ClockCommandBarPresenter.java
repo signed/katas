@@ -1,5 +1,7 @@
 package com.github.signed.kata.chronos;
 
+import com.github.signed.kata.chronos.swing.ClockCommandBar;
+
 public class ClockCommandBarPresenter {
 
     private final ChronosClock chronosClock;

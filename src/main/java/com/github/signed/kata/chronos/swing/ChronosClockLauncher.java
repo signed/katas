@@ -1,5 +1,14 @@
-package com.github.signed.kata.chronos;
+package com.github.signed.kata.chronos.swing;
 
+import com.github.signed.kata.chronos.ChronosClock;
+import com.github.signed.kata.chronos.ChronosClockPresenter;
+import com.github.signed.kata.chronos.ChronosClockUpdater;
+import com.github.signed.kata.chronos.ClockCommandBarPresenter;
+import com.github.signed.kata.chronos.NumberSystem;
+import com.github.signed.kata.chronos.NumberSystemModel;
+import com.github.signed.kata.chronos.PresenterConfiguration;
+import com.github.signed.kata.chronos.swing.ClockCabinet;
+import com.github.signed.kata.chronos.swing.StockExchangeDisplay;
 import org.joda.time.DateTime;
 import org.joda.time.DateTimeZone;
 

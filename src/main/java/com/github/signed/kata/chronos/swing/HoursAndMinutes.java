@@ -1,4 +1,8 @@
-package com.github.signed.kata.chronos;
+package com.github.signed.kata.chronos.swing;
+
+import com.github.signed.kata.chronos.ChronosClockDisplay;
+import com.github.signed.kata.chronos.EditListener;
+import com.github.signed.kata.chronos.swing.DisplayAndEdit;
 
 import javax.swing.JComponent;
 import javax.swing.JLabel;

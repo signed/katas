@@ -1,4 +1,8 @@
-package com.github.signed.kata.chronos;
+package com.github.signed.kata.chronos.swing;
+
+import com.github.signed.kata.chronos.ReverseTimeListener;
+import com.github.signed.kata.chronos.SwitchNumberSystemListener;
+import com.github.signed.kata.chronos.ToggleTimeProgression;
 
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
