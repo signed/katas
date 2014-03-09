@@ -1,6 +1,9 @@
 package com.github.signed.kata.chronos;
 
-import com.github.signed.kata.chronos.swing.ClockCommandBar;
+import com.github.signed.kata.chronos.gui.ClockCommandBar;
+import com.github.signed.kata.chronos.gui.ReverseTimeListener;
+import com.github.signed.kata.chronos.gui.SwitchNumberSystemListener;
+import com.github.signed.kata.chronos.gui.ToggleTimeProgression;
 
 public class ClockCommandBarPresenter {
 

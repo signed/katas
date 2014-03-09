@@ -1,8 +1,7 @@
 package com.github.signed.kata.chronos.swing;
 
-import com.github.signed.kata.chronos.ChronosClockDisplay;
-import com.github.signed.kata.chronos.EditListener;
-import com.github.signed.kata.chronos.swing.DisplayAndEdit;
+import com.github.signed.kata.chronos.gui.ChronosClockDisplay;
+import com.github.signed.kata.chronos.gui.EditListener;
 
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -10,19 +9,20 @@ import java.awt.BorderLayout;
 import java.awt.FlowLayout;
 
 public class StockExchangeDisplay implements ChronosClockDisplay {
+
     private static JLabel separator() {
         return new JLabel(":");
     }
 
     private final JPanel content = new JPanel(new BorderLayout());
     private final JLabel city = new JLabel();
-    private final DisplayAndEdit hours = new DisplayAndEdit();
-    private final DisplayAndEdit minutes = new DisplayAndEdit();
+    private final SwingDisplayAndEdit hours = new SwingDisplayAndEdit();
+    private final SwingDisplayAndEdit minutes = new SwingDisplayAndEdit();
 
-    private final DisplayAndEdit seconds = new DisplayAndEdit();
+    private final SwingDisplayAndEdit seconds = new SwingDisplayAndEdit();
 
     public StockExchangeDisplay() {
-        JPanel time = new JPanel(new FlowLayout(FlowLayout.CENTER, 0,0));
+        JPanel time = new JPanel(new FlowLayout(FlowLayout.CENTER, 0, 0));
         time.add(hours.component());
         time.add(separator());
         time.add(minutes.component());
@@ -83,7 +83,7 @@ public class StockExchangeDisplay implements ChronosClockDisplay {
         this.city.setText(city);
     }
 
-    public JPanel component(){
+    public JPanel component() {
         return content;
     }
 }

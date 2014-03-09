@@ -1,6 +1,7 @@
 package com.github.signed.kata.chronos.swing;
 
-import com.github.signed.kata.chronos.EditListener;
+import com.github.signed.kata.chronos.gui.DisplayAndEdit;
+import com.github.signed.kata.chronos.gui.EditListener;
 import com.google.common.collect.Sets;
 
 import javax.swing.BorderFactory;
@@ -19,7 +20,8 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.Set;
 
-public class DisplayAndEdit {
+public class SwingDisplayAndEdit implements DisplayAndEdit {
+
     private final FocusListener endEditOnFocusLost = new FocusAdapter() {
         @Override
         public void focusLost(FocusEvent e) {
@@ -27,13 +29,14 @@ public class DisplayAndEdit {
             display();
         }
     };
+
     private final Set<EditListener> editListeners = Sets.newHashSet();
     private final JPanel panel = new JPanel(new FlowLayout(FlowLayout.CENTER, 0, 0));
     private final JLabel display = new JLabel();
     private final JTextField edit = new JTextField();
 
-    public DisplayAndEdit() {
-        this.display.setBorder(BorderFactory.createEmptyBorder(2,2,2,2));
+    public SwingDisplayAndEdit() {
+        this.display.setBorder(BorderFactory.createEmptyBorder(2, 2, 2, 2));
         this.panel.add(display);
         this.panel.add(edit);
         this.edit.setVisible(false);
@@ -56,6 +59,21 @@ public class DisplayAndEdit {
 
             }
         });
+    }
+
+    @Override
+    public void addEditListener(EditListener editListener) {
+        editListeners.add(editListener);
+    }
+
+    @Override
+    public String getUserEditedValue() {
+        return edit.getText();
+    }
+
+    @Override
+    public void setText(String text) {
+        this.display.setText(text);
     }
 
     private void edit() {
@@ -83,25 +101,13 @@ public class DisplayAndEdit {
         display.setVisible(true);
     }
 
-    public void addEditListener(EditListener editListener) {
-        editListeners.add(editListener);
-    }
-
-    public void notifyEditListener(){
+    private void notifyEditListener() {
         for (EditListener editListener : editListeners) {
             editListener.edit();
         }
     }
 
-    public String getUserEditedValue(){
-        return edit.getText();
-    }
-
-    public void setText(String text){
-        this.display.setText(text);
-    }
-
-    public JComponent component(){
+    public JComponent component() {
         return panel;
     }
 }

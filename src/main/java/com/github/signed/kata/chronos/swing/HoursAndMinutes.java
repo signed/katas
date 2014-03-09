@@ -1,8 +1,7 @@
 package com.github.signed.kata.chronos.swing;
 
-import com.github.signed.kata.chronos.ChronosClockDisplay;
-import com.github.signed.kata.chronos.EditListener;
-import com.github.signed.kata.chronos.swing.DisplayAndEdit;
+import com.github.signed.kata.chronos.gui.ChronosClockDisplay;
+import com.github.signed.kata.chronos.gui.EditListener;
 
 import javax.swing.JComponent;
 import javax.swing.JLabel;
@@ -10,10 +9,10 @@ import javax.swing.JPanel;
 import java.awt.FlowLayout;
 
 public class HoursAndMinutes implements ChronosClockDisplay {
-    private final JPanel component = new JPanel(new FlowLayout(FlowLayout.CENTER, 0,0));
-    private final DisplayAndEdit hours = new DisplayAndEdit();
+    private final JPanel component = new JPanel(new FlowLayout(FlowLayout.CENTER, 0, 0));
+    private final SwingDisplayAndEdit hours = new SwingDisplayAndEdit();
     private final JLabel separator = new JLabel(":");
-    private final DisplayAndEdit minutes = new DisplayAndEdit();
+    private final SwingDisplayAndEdit minutes = new SwingDisplayAndEdit();
 
     public HoursAndMinutes() {
         component.add(hours.component());
@@ -22,7 +21,7 @@ public class HoursAndMinutes implements ChronosClockDisplay {
     }
 
     @Override
-    public void displayHours(String hours){
+    public void displayHours(String hours) {
         this.hours.setText(hours);
     }
 
@@ -37,7 +36,7 @@ public class HoursAndMinutes implements ChronosClockDisplay {
     }
 
     @Override
-    public void displayMinutes(String minutes){
+    public void displayMinutes(String minutes) {
         this.minutes.setText(minutes);
     }
 
@@ -72,8 +71,7 @@ public class HoursAndMinutes implements ChronosClockDisplay {
     }
 
 
-
-    public JComponent component(){
+    public JComponent component() {
         return component;
     }
 }

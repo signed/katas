@@ -1,14 +1,18 @@
-apply plugin:'java'
+apply plugin: 'java'
+apply from: "http://dl.bintray.com/content/shemnon/javafx-gradle/0.3.0/javafx.plugin"
 
-repositories{
+targetCompatibility = 1.7
+sourceCompatibility = 1.7
+
+repositories {
     mavenLocal()
     mavenCentral()
 }
 
-dependencies{
-    compile (
+dependencies {
+    compile(
             'joda-time:joda-time:2.3'
-            ,'com.google.guava:guava:16.0.1'
+            , 'com.google.guava:guava:16.0.1'
     )
     testCompile 'junit:junit:4.11'
 }

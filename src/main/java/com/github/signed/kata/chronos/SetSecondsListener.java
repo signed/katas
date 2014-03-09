@@ -1,5 +1,8 @@
 package com.github.signed.kata.chronos;
 
+import com.github.signed.kata.chronos.gui.ChronosClockDisplay;
+import com.github.signed.kata.chronos.gui.EditListener;
+
 class SetSecondsListener implements EditListener {
     private final ChronosClockDisplay chronosClockDisplay;
     private final ChronosClock chronosClock;
@@ -16,7 +19,7 @@ class SetSecondsListener implements EditListener {
         numberParser.parseNumberFrom(secondsAsString, new NumberParser.ParseResult() {
             @Override
             public void parsed(int seconds) {
-                if( seconds < 0 || seconds > 59){
+                if (seconds < 0 || seconds > 59) {
                     return;
                 }
                 chronosClock.setSecondsOfHourTo(seconds);

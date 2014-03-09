@@ -1,5 +1,6 @@
 package com.github.signed.kata.chronos;
 
+import com.github.signed.kata.chronos.gui.ChronosClockDisplay;
 import com.google.common.collect.ImmutableMap;
 import org.joda.time.DateTime;
 

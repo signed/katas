@@ -1,37 +1,40 @@
 package com.github.signed.kata.chronos.swing;
 
+import com.github.signed.kata.chronos.gui.ChronosClockDisplay;
+import com.github.signed.kata.chronos.gui.ClockCabinet;
+import com.github.signed.kata.chronos.gui.ClockCommandBar;
+
 import javax.swing.JComponent;
 import javax.swing.JPanel;
 
-public class ClockCabinet {
+public class SwingClockCabinet implements ClockCabinet {
     private final JPanel clockCabinet = new JPanel();
-    private final ClockCommandBar clockCommandBar = new ClockCommandBar();
+    private final SwingClockCommandBar clockCommandBar = new SwingClockCommandBar();
 
-    public ClockCabinet() {
+    public SwingClockCabinet() {
         clockCabinet.add(clockCommandBar.component());
     }
 
-    public HoursAndMinutes hourMinuteDisplay() {
+    @Override
+    public ChronosClockDisplay hourMinuteDisplay() {
         HoursAndMinutes hoursAndMinutes = new HoursAndMinutes();
         clockCabinet.add(hoursAndMinutes.component());
         return hoursAndMinutes;
     }
 
-    public StockExchangeDisplay stockExchangeClock() {
+    @Override
+    public ChronosClockDisplay stockExchangeClock() {
         StockExchangeDisplay stockExchangeDisplay = new StockExchangeDisplay();
         this.clockCabinet.add(stockExchangeDisplay.component());
         return stockExchangeDisplay;
     }
 
-    public void add(JComponent clock){
-        clockCabinet.add(clock);
-    }
-
-    public ClockCommandBar commandBar(){
+    @Override
+    public ClockCommandBar commandBar() {
         return clockCommandBar;
     }
 
-    public JComponent component(){
+    public JComponent component() {
         return clockCabinet;
     }
 }

@@ -1,8 +1,9 @@
 package com.github.signed.kata.chronos.swing;
 
-import com.github.signed.kata.chronos.ReverseTimeListener;
-import com.github.signed.kata.chronos.SwitchNumberSystemListener;
-import com.github.signed.kata.chronos.ToggleTimeProgression;
+import com.github.signed.kata.chronos.gui.ClockCommandBar;
+import com.github.signed.kata.chronos.gui.ReverseTimeListener;
+import com.github.signed.kata.chronos.gui.SwitchNumberSystemListener;
+import com.github.signed.kata.chronos.gui.ToggleTimeProgression;
 
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
@@ -13,13 +14,13 @@ import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class ClockCommandBar {
+public class SwingClockCommandBar implements ClockCommandBar {
     private final JPanel components = new JPanel();
     private final JButton timeToggleButton = new JButton();
     private final JButton reverseTime = new JButton("Reverse time");
     private final JButton switchNumberSystem = new JButton("Switch number system");
 
-    public ClockCommandBar() {
+    public SwingClockCommandBar() {
         components.setLayout(new BoxLayout(components, BoxLayout.Y_AXIS));
 
         layoutAndAdd(timeToggleButton);
@@ -33,14 +34,17 @@ public class ClockCommandBar {
         components.add(button);
     }
 
-    public void displayStopTimeButton(){
+    @Override
+    public void displayStopTimeButton() {
         timeToggleButton.setText("Stop time");
     }
 
-    public void displayStartTimeButton(){
+    @Override
+    public void displayStartTimeButton() {
         timeToggleButton.setText("Start time");
     }
 
+    @Override
     public void addTimeToggleListener(final ToggleTimeProgression toggleTimeProgression) {
         timeToggleButton.addActionListener(new ActionListener() {
             @Override
@@ -50,7 +54,8 @@ public class ClockCommandBar {
         });
     }
 
-    public void addReverseTimeListener(final ReverseTimeListener reverseTimeListener){
+    @Override
+    public void addReverseTimeListener(final ReverseTimeListener reverseTimeListener) {
         reverseTime.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -59,7 +64,8 @@ public class ClockCommandBar {
         });
     }
 
-    public void addSwitchNumberSystemListener(final SwitchNumberSystemListener switchNumberSystemListener){
+    @Override
+    public void addSwitchNumberSystemListener(final SwitchNumberSystemListener switchNumberSystemListener) {
         switchNumberSystem.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -68,7 +74,7 @@ public class ClockCommandBar {
         });
     }
 
-    public JComponent component(){
+    public JComponent component() {
         return components;
     }
 }

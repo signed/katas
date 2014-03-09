@@ -1,5 +1,7 @@
 package com.github.signed.kata.chronos;
 
+import com.github.signed.kata.chronos.gui.ChronosClockDisplay;
+import com.github.signed.kata.chronos.gui.EditListener;
 import org.joda.time.DateTimeZone;
 
 class SetHourListener implements EditListener {

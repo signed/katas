@@ -1,5 +1,8 @@
 package com.github.signed.kata.chronos;
 
+import com.github.signed.kata.chronos.gui.ChronosClockDisplay;
+import com.github.signed.kata.chronos.gui.EditListener;
+
 class SetMinuteListener implements EditListener {
     private final ChronosClockDisplay chronosClockDisplay;
     private final ChronosClock chronosClock;
