@@ -1,6 +1,7 @@
 # Background #
 Chronos, greek good of time, broke his our glass, that he used to make time pass.
-To keep time flowing he needs a new machine to control time to replace the hour glass.
+To keep time flowing he needs to replace the hour glass with a new machine.
+Right now, he does it in his head, but that is unworthy task for a god.
 
 Likes the so called Agile approach (never understood how some one could do it another way)
 
@@ -9,8 +10,8 @@ Likes the so called Agile approach (never understood how some one could do it an
 ## Story ##
 We Chronos the mighty demand to pass the current time to the magic machine to initialize our clock.
 
-* As favour to us mortals the agrees to pass the milliseconds passed since 1970 01 01
-* He wants the time to be print to the command line to check if the magic machine understood his command.
+* As favour to us mortals he agrees to provide the milliseconds passed since 1970 01 01 UTC
+* To check if the magic machine understood his command, he wants the time to be printed to the command line .
 * Chronos lives on mount Olympus
 
 
@@ -31,7 +32,6 @@ The worshiper and temple business not being the same contribution wise as in ant
 We Chronos the glorious demand to see the time at the major stock exchanges in the world to place our final order on time before the stock exchange closes.
 
 * Major stock exchanges being
-
     * New York
     * Tokyo
     * London
@@ -41,11 +41,11 @@ We Chronos the glorious demand to see the time at the major stock exchanges in t
 
 # Stop time #
 ## Background ##
-Sometimes when day trading and things get busy, Chronos likes to take some extra extra moments to make his decision.
+Sometimes when day trading and things get busy, Chronos likes to take some extra moments to make his decision.
 To avoid others stealing his big trade he likes to stop time, just for little bit ...
 
 ## Story ##
-We Chronos the righteous command you to add a button to stop time so we can bring order and peace to the world.
+We Chronos the righteous command you to add a way to stop time so we can bring order and peace to the world.
 
 * A button to stop the time
 * If the button gets pressed a second time, time starts progressing
@@ -81,4 +81,3 @@ We Chronos the Wise demand the time to be displayed in roman numbers, because we
 * Switch to roman numbers on demand
 * Chronos can enter Roman or Arabic numbers at any point to change the time
 
-# Store time between restarts #
