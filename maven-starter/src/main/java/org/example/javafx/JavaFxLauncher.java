@@ -2,14 +2,13 @@ package org.example.javafx;
 
 import javafx.application.Application;
 import javafx.event.ActionEvent;
-import javafx.event.Event;
 import javafx.event.EventHandler;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 public class JavaFxLauncher extends Application {
@@ -33,21 +32,23 @@ public class JavaFxLauncher extends Application {
         stage.show();
     }
 
-    private Parent createContent() {
-        HBox hBox = new HBox();
-
+    private Pane createContent() {
         Label label = new Label("hello world");
         final TextField textField = new TextField();
         Button button = new Button("press me");
 
-        button.addEventHandler(ActionEvent.ACTION, new EventHandler<Event>() {
+        button.addEventHandler(ActionEvent.ACTION, new EventHandler<ActionEvent>() {
             @Override
-            public void handle(Event event) {
+            public void handle(ActionEvent event) {
                 textField.setText("Ouch, not so hard...");
             }
         });
 
-        hBox.getChildren().addAll(label, button, textField);
+        HBox hBox = new HBox();
+        hBox.getChildren().add(label);
+        hBox.getChildren().add(button);
+        hBox.getChildren().add(textField);
+
         return hBox;
     }
 

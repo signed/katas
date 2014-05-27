@@ -15,10 +15,18 @@ import javax.swing.WindowConstants;
 public class SwingLauncher {
 
     public static void main(String[] args) {
-        new SwingLauncher().launch(args);
+        new SwingLauncher().start(args);
     }
 
-    private void launch(String[] args) {
+    private void start(String[] args) {
+        javax.swing.SwingUtilities.invokeLater(new Runnable() {
+            public void run() {
+                createAndShowGUI(createContent());
+            }
+        });
+    }
+
+    private JPanel createContent() {
         JLabel label = new JLabel("hello world");
         final JTextField textField = new JTextField();
         textField.setPreferredSize(new Dimension(160, 25));
@@ -31,18 +39,11 @@ public class SwingLauncher {
             }
         });
 
-
         final JPanel panel = new JPanel();
         panel.add(label);
         panel.add(button);
         panel.add(textField);
-
-
-        javax.swing.SwingUtilities.invokeLater(new Runnable() {
-            public void run() {
-                createAndShowGUI(panel);
-            }
-        });
+        return panel;
     }
 
     private void createAndShowGUI(JComponent display) {
