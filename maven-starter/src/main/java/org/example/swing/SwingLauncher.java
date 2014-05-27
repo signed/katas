@@ -30,20 +30,34 @@ public class SwingLauncher {
         JLabel label = new JLabel("hello world");
         final JTextField textField = new JTextField();
         textField.setPreferredSize(new Dimension(160, 25));
-        JButton button = new JButton("press me");
+        final JButton button = new JButton("press me");
 
-        button.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                textField.setText("Ouch, not so hard...");
-            }
-        });
+        listenToButtonPressAndRespond(textField, button);
+        listenToTextInputAndUpdateButtonText(textField, button);
 
         final JPanel panel = new JPanel();
         panel.add(label);
         panel.add(button);
         panel.add(textField);
         return panel;
+    }
+
+    private void listenToButtonPressAndRespond(final JTextField textField, JButton button) {
+        button.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                textField.setText("Ouch, not so hard...");
+            }
+        });
+    }
+
+    private void listenToTextInputAndUpdateButtonText(final JTextField textField, final JButton button) {
+        textField.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                button.setText(textField.getText());
+            }
+        });
     }
 
     private void createAndShowGUI(JComponent display) {

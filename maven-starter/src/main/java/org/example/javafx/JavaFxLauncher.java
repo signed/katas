@@ -35,14 +35,10 @@ public class JavaFxLauncher extends Application {
     private Pane createContent() {
         Label label = new Label("hello world");
         final TextField textField = new TextField();
-        Button button = new Button("press me");
+        final Button button = new Button("press me");
 
-        button.addEventHandler(ActionEvent.ACTION, new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                textField.setText("Ouch, not so hard...");
-            }
-        });
+        listenToButtonPressAndRespond(textField, button);
+        listenToTextInputAndUpdateButtonText(textField, button);
 
         HBox hBox = new HBox();
         hBox.getChildren().add(label);
@@ -50,6 +46,24 @@ public class JavaFxLauncher extends Application {
         hBox.getChildren().add(textField);
 
         return hBox;
+    }
+
+    private void listenToButtonPressAndRespond(final TextField textField, Button button) {
+        button.addEventHandler(ActionEvent.ACTION, new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                textField.setText("Ouch, not so hard...");
+            }
+        });
+    }
+
+    private void listenToTextInputAndUpdateButtonText(final TextField textField, final Button button) {
+        textField.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                button.setText(textField.getText());
+            }
+        });
     }
 
     @Override
