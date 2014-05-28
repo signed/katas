@@ -95,4 +95,18 @@
             <version>1.9.5</version>
         </dependency>
     </dependencies>
+
+    <profiles>
+        <profile>
+            <id>change-path-separator-on-windows</id>
+            <activation>
+                <os>
+                    <family>Windows</family>
+                </os>
+            </activation>
+            <properties>
+                <separator>;</separator>
+            </properties>
+        </profile>
+    </profiles>
 </project>
