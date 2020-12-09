@@ -15,13 +15,14 @@ public class JavaFxLauncher extends Application {
     }
 
     @Override
-    public void init() throws Exception {
+    public void init() {
         Parameters parameters = getParameters();
-        commonLauncher = CommonLauncher.BuildFrom(parameters.getUnnamed().toArray(new String[1]), clockCabinet);
+        String[] args = parameters.getUnnamed().toArray(new String[1]);
+        commonLauncher = CommonLauncher.BuildFrom(args, clockCabinet);
     }
 
     @Override
-    public void start(Stage stage) throws Exception {
+    public void start(Stage stage) {
         stage.setTitle("Chronos Clock");
         stage.setScene(new Scene(clockCabinet.parent()));
         stage.setWidth(640);
@@ -29,7 +30,7 @@ public class JavaFxLauncher extends Application {
     }
 
     @Override
-    public void stop() throws Exception {
+    public void stop() {
         commonLauncher.stopTime();
     }
 }

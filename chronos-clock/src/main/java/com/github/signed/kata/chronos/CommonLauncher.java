@@ -26,8 +26,16 @@ public class CommonLauncher {
     }
 
     public DateTime parseTimeArgument(String[] args) {
-        initialDateAndTime = new DateTime(Long.valueOf(args[0]), DateTimeZone.UTC);
+        initialDateAndTime = new DateTime(attemptToParseMilliseconds(args[0]), DateTimeZone.UTC);
         return initialDateAndTime;
+    }
+
+    private Long attemptToParseMilliseconds(String arg) {
+        try {
+            return Long.valueOf(arg);
+        } catch (RuntimeException exception) {
+            return 0L;
+        }
     }
 
     public void createModels() {
