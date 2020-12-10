@@ -5,5 +5,5 @@ module com.github.signed.kata.chronos {
     requires javafx.controls;
     requires java.desktop;
     opens com.github.signed.kata.chronos.javafx to javafx.base, javafx.controls, javafx.graphics;
-    opens org.example.javafx to javafx.base, javafx.controls, javafx.graphics;
+    opens kata.chronos.javafx to javafx.base, javafx.controls, javafx.graphics;
 }

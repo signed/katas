@@ -1,4 +1,4 @@
-package org.example.swing;
+package kata.chronos.swing;
 
 import java.awt.Dimension;
 
