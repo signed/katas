@@ -1,8 +1,6 @@
 package org.example.swing;
 
 import java.awt.Dimension;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JComponent;
@@ -19,11 +17,7 @@ public class SwingLauncher {
     }
 
     private void start(String[] args) {
-        javax.swing.SwingUtilities.invokeLater(new Runnable() {
-            public void run() {
-                createAndShowGUI(createContent());
-            }
-        });
+        javax.swing.SwingUtilities.invokeLater(() -> createAndShowGUI(createContent()));
     }
 
     private JPanel createContent() {
@@ -43,21 +37,11 @@ public class SwingLauncher {
     }
 
     private void listenToButtonPressAndRespond(final JTextField textField, JButton button) {
-        button.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                textField.setText("Ouch, not so hard...");
-            }
-        });
+        button.addActionListener(e -> textField.setText("Ouch, not so hard..."));
     }
 
     private void listenToTextInputAndUpdateButtonText(final JTextField textField, final JButton button) {
-        textField.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                button.setText(textField.getText());
-            }
-        });
+        textField.addActionListener(e -> button.setText(textField.getText()));
     }
 
     private void createAndShowGUI(JComponent display) {

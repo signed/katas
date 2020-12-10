@@ -14,18 +14,18 @@ import javafx.stage.Stage;
 public class JavaFxLauncher extends Application {
 
     public static void main(String[] args) {
-        Application.launch(args);
+        launch(args);
     }
 
     @Override
-    public void init() throws Exception {
+    public void init() {
         for (String parameter : getParameters().getRaw()) {
             System.out.println(parameter);
         }
     }
 
     @Override
-    public void start(Stage stage) throws Exception {
+    public void start(Stage stage) {
         stage.setTitle("application name");
         stage.setScene(new Scene(createContent()));
         stage.setWidth(640);
@@ -49,25 +49,15 @@ public class JavaFxLauncher extends Application {
     }
 
     private void listenToButtonPressAndRespond(final TextField textField, Button button) {
-        button.addEventHandler(ActionEvent.ACTION, new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                textField.setText("Ouch, not so hard...");
-            }
-        });
+        button.addEventHandler(ActionEvent.ACTION, event -> textField.setText("Ouch, not so hard..."));
     }
 
     private void listenToTextInputAndUpdateButtonText(final TextField textField, final Button button) {
-        textField.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent actionEvent) {
-                button.setText(textField.getText());
-            }
-        });
+        textField.setOnAction(actionEvent -> button.setText(textField.getText()));
     }
 
     @Override
-    public void stop() throws Exception {
+    public void stop() {
         System.out.println("executed on shutdown");
     }
 }
