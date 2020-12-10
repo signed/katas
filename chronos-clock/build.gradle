@@ -9,7 +9,7 @@ repositories {
 }
 
 application {
-    mainClass = 'com.github.signed.kata.chronos.javafx.JavaFxLauncher'
+    mainClass = 'kata.chronos.JavaFxLauncher'
 }
 
 javafx {
