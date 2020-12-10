@@ -1,62 +1,37 @@
 package kata.chronos.javafx;
 
 import javafx.application.Application;
-import javafx.event.ActionEvent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import kata.chronos.CommonLauncher;
 
 public class JavaFxLauncher extends Application {
 
+    private final JavaFxClockCabinet clockCabinet = new JavaFxClockCabinet();
+    private CommonLauncher commonLauncher;
+
     public static void main(String[] args) {
-        launch(args);
+        Application.launch(args);
     }
 
     @Override
     public void init() {
-        for (String parameter : getParameters().getRaw()) {
-            System.out.println(parameter);
-        }
+        Parameters parameters = getParameters();
+        String[] args = parameters.getUnnamed().toArray(new String[1]);
+        commonLauncher = CommonLauncher.BuildFrom(args, clockCabinet);
     }
 
     @Override
     public void start(Stage stage) {
-        stage.setTitle("application name");
-        stage.setScene(new Scene(createContent()));
+        stage.setTitle("Chronos Clock");
+        stage.setScene(new Scene(clockCabinet.parent()));
         stage.setWidth(640);
         stage.show();
     }
 
-    private Pane createContent() {
-        Label label = new Label("hello world");
-        final TextField textField = new TextField();
-        final Button button = new Button("press me");
-
-        listenToButtonPressAndRespond(textField, button);
-        listenToTextInputAndUpdateButtonText(textField, button);
-
-        HBox hBox = new HBox();
-        hBox.getChildren().add(label);
-        hBox.getChildren().add(button);
-        hBox.getChildren().add(textField);
-
-        return hBox;
-    }
-
-    private void listenToButtonPressAndRespond(final TextField textField, Button button) {
-        button.addEventHandler(ActionEvent.ACTION, event -> textField.setText("Ouch, not so hard..."));
-    }
-
-    private void listenToTextInputAndUpdateButtonText(final TextField textField, final Button button) {
-        textField.setOnAction(actionEvent -> button.setText(textField.getText()));
-    }
-
     @Override
     public void stop() {
-        System.out.println("executed on shutdown");
+        commonLauncher.stopTime();
     }
 }
+

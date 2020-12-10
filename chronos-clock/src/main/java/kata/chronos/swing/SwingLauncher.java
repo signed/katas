@@ -1,51 +1,25 @@
 package kata.chronos.swing;
 
-import java.awt.Dimension;
+import kata.chronos.CommonLauncher;
 
-import javax.swing.JButton;
-import javax.swing.JComponent;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JTextField;
-import javax.swing.WindowConstants;
+import javax.swing.*;
 
 public class SwingLauncher {
 
     public static void main(String[] args) {
-        new SwingLauncher().start(args);
+        new SwingLauncher().launch(args);
     }
 
-    private void start(String[] args) {
-        javax.swing.SwingUtilities.invokeLater(() -> createAndShowGUI(createContent()));
-    }
+    private void launch(String[] args) {
+        final SwingClockCabinet clockCabinet = new SwingClockCabinet();
+        CommonLauncher.BuildFrom(args, clockCabinet);
 
-    private JPanel createContent() {
-        JLabel label = new JLabel("hello world");
-        final JTextField textField = new JTextField();
-        textField.setPreferredSize(new Dimension(160, 25));
-        final JButton button = new JButton("press me");
-
-        listenToButtonPressAndRespond(textField, button);
-        listenToTextInputAndUpdateButtonText(textField, button);
-
-        final JPanel panel = new JPanel();
-        panel.add(label);
-        panel.add(button);
-        panel.add(textField);
-        return panel;
-    }
-
-    private void listenToButtonPressAndRespond(final JTextField textField, JButton button) {
-        button.addActionListener(e -> textField.setText("Ouch, not so hard..."));
-    }
-
-    private void listenToTextInputAndUpdateButtonText(final JTextField textField, final JButton button) {
-        textField.addActionListener(e -> button.setText(textField.getText()));
+        javax.swing.SwingUtilities.invokeLater(() -> createAndShowGUI(clockCabinet.component()));
     }
 
     private void createAndShowGUI(JComponent display) {
-        JFrame frame = new JFrame("application name");
+        //Create and set up the window.
+        JFrame frame = new JFrame("Chronos Clock");
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         frame.getContentPane().add(display);
         frame.pack();
