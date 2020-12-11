@@ -11,14 +11,15 @@ Likes the so called Agile approach (never understood how some one could do it an
 We Chronos the mighty demand to pass the current time to the magic machine to initialize our clock.
 
 * As favour to us mortals he agrees to provide the milliseconds passed since 1970 01 01 UTC
-* To check if the magic machine understood his command, he wants the time to be printed to the command line .
+* To check if the magic machine understood his command, he wants the time to be printed to the command line.
+* Print the updated time every second  
 * Chronos lives on mount Olympus
 
 
 # Display the time #
 
 ## Story ##
-We Chronos the mighty demand to see the time pass on the magic rectangle so it may entertain us.
+We Chronos the mighty demand to see the time pass on the magic rectangle, so it may entertain us.
 
 * Has to be a Swing application (he likes the music)
 * Only display Hour and minutes
