@@ -6,3 +6,6 @@ build/
 .gradle/
 .idea/
 target/
+node_modules/
+coverage/
+.DS_Store
