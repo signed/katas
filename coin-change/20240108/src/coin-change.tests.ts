@@ -1,7 +1,6 @@
 import {expect, test} from 'vitest'
 import {coinChange} from "./coin-change.js";
 
-
 const denomination = [1, 5, 10, 25, 100]
 
 test('no change means no coins', () => {
