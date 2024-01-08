@@ -1,5 +1,5 @@
 import { expect, test } from 'vitest'
-import { horizontalBlueprintFor, diamond, includedCharactersFor, verticalBlueprintFor } from './diamond'
+import { horizontalBlueprintFor, diamond, includedCharactersFor, verticalBlueprintFor } from './diamond.js'
 
 test('explore api', () => {
   expect('A'.charCodeAt(0)).toEqual(65)

@@ -8,12 +8,18 @@ devDependencies:
   '@signed/prettier-config':
     specifier: 0.1.0
     version: 0.1.0
+  '@tsconfig/node21':
+    specifier: 21.0.1
+    version: 21.0.1
+  '@tsconfig/strictest':
+    specifier: 2.0.2
+    version: 2.0.2
   prettier:
-    specifier: 3.0.0
-    version: 3.0.0
+    specifier: 3.1.1
+    version: 3.1.1
   typescript:
-    specifier: 5.1.6
-    version: 5.1.6
+    specifier: 5.3.3
+    version: 5.3.3
   vite:
     specifier: 5.0.11
     version: 5.0.11
@@ -353,6 +359,14 @@ packages:
     resolution: {integrity: sha512-+Fj43pSMwJs4KRrH/938Uf+uAELIgVBmQzg/q1YG10djyfA3TnrU8N8XzqCh/okZdszqBQTZf96idMfE5lnwTA==}
     dev: true
 
+  /@tsconfig/node21@21.0.1:
+    resolution: {integrity: sha512-2Khg79N+z2Qkb9SjLzOi8cz2PSa/oUpHIeQm1YWzmWXkoFcPXFZSHgs+Z8iPCDjIoXFqMNYntiTXxfLYQMcRhw==}
+    dev: true
+
+  /@tsconfig/strictest@2.0.2:
+    resolution: {integrity: sha512-jt4jIsWKvUvuY6adJnQJlb/UR7DdjC8CjHI/OaSQruj2yX9/K6+KOvDt/vD6udqos/FUk5Op66CvYT7TBLYO5Q==}
+    dev: true
+
   /@types/estree@1.0.5:
     resolution: {integrity: sha512-/kYRxGDLWzHOB7q+wtSUQlFrtcdUccpfy+X+9iMBpHK8QLLhx2wIPYuS5DYtR9Wa/YlZAbIovy7qVdB1Aq6Lyw==}
     dev: true
@@ -669,8 +683,8 @@ packages:
       source-map-js: 1.0.2
     dev: true
 
-  /prettier@3.0.0:
-    resolution: {integrity: sha512-zBf5eHpwHOGPC47h0zrPyNn+eAEIdEzfywMoYn2XPi0P44Zp0tSq64rq0xAREh4auw2cJZHo9QUob+NqCQky4g==}
+  /prettier@3.1.1:
+    resolution: {integrity: sha512-22UbSzg8luF4UuZtzgiUOfcGM8s4tjBv6dJRT7j275NXsy2jb4aJa4NNveul5x4eqlF1wuhuR2RElK71RvmVaw==}
     engines: {node: '>=14'}
     hasBin: true
     dev: true
@@ -775,8 +789,8 @@ packages:
     engines: {node: '>=4'}
     dev: true
 
-  /typescript@5.1.6:
-    resolution: {integrity: sha512-zaWCozRZ6DLEWAWFrVDz1H6FVXzUSfTy5FUMWsQlU8Ym5JP9eO4xkTIROFCQvhQf61z6O/G6ugw3SgAnvvm+HA==}
+  /typescript@5.3.3:
+    resolution: {integrity: sha512-pXWcraxM0uxAS+tN0AG/BF2TyqmHO014Z070UsJ+pFvYuRSq8KH8DmWpnbXe0pEPDHXZV3FcAbJkijJ5oNEnWw==}
     engines: {node: '>=14.17'}
     hasBin: true
     dev: true
