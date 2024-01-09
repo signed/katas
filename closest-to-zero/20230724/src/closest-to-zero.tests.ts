@@ -36,18 +36,21 @@ describe('closest to zero', () => {
     expect(closestToZero(['bogus'])).toEqual('no closest element')
   });
 
-  test('If more than one word contains the same letters, choose the shortest one.', () => {
-    expect(closestToZero(['zero+', 'zero'])).toEqual('zero')
-  });
-
-  //A word is close to “zero” if it contains the same letters.
-  test('detect strings that contain all characters', () => {
+  test('A word is close to “zero” if it contains the same letters.', () => {
     expect(containsSameLettersAsZero('')).toEqual(false)
     expect(containsSameLettersAsZero('zero')).toEqual(true)
     expect(containsSameLettersAsZero('z-ero')).toEqual(true)
   });
-  /*
-    If more than one is the same length, choose the one with the letters in the most similar order.
-    If there is still a tie, choose the one that appeared first in the original list.
-   */
+
+  test('If more than one word contains the same letters, choose the shortest one.', () => {
+    expect(closestToZero(['zero+', 'zero'])).toEqual('zero')
+  });
+
+  test('If more than one is the same length, choose the one with the letters in the most similar order.', () => {
+    expect(closestToZero(['zer-o', 'zero+'])).toEqual('zero+')
+  });
+
+  test('If there is still a tie, choose the one that appeared first in the original list.', () => {
+    expect(closestToZero(['zero one', 'zero two'])).toEqual('zero one')
+  });
 });
