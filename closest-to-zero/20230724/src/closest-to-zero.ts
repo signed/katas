@@ -1,11 +1,13 @@
+const distanceToZero = (num:number) => {
+  return ({num, distance: Math.abs(num)});
+};
+
 export function closestToZero(numbers: number[]) {
   if (numbers.length === 0) {
     return 'no elements';
   }
-  const weighted = numbers.map((num) => {
-    return ({num, distance: Math.abs(num)});
-  });
-  const closest = weighted.reduce((acc, cur) => {
+
+  const closest = numbers.map(distanceToZero).reduce((acc, cur) => {
     if (cur.distance < acc.distance) {
       return cur
     }
