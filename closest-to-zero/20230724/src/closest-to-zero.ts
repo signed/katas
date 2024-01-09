@@ -1,3 +1,3 @@
-export function closestToZero() {
-  return false
+export function closestToZero(_p: any[]) {
+  return 'no elements'
 }

@@ -1,6 +1,6 @@
 import {expect, test} from 'vitest'
 import {closestToZero} from './closest-to-zero.js'
 
-test('hello', () => {
-  expect(closestToZero()).toEqual(true)
+test('empty list has no element closest to zero', () => {
+  expect(closestToZero([])).toEqual('no elements')
 });
