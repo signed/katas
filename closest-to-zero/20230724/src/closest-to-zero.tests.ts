@@ -1,5 +1,5 @@
 import {describe, expect, test} from 'vitest'
-import {closestTo0, closestToZero, distanceToZero} from './closest-to-zero.js'
+import {closestTo0, closestToZero, containsSameLettersAsZero} from './closest-to-zero.js'
 
 describe('closest to 0', () => {
   test('empty list has no element closest to zero', () => {
@@ -28,9 +28,10 @@ describe('closest to zero', () => {
     expect(closestToZero([])).toEqual('no closest element')
   });
 
-  test('strings that do not contain the zero characters are not close at all', () => {
-    expect(distanceToZero('')).toEqual(Number.POSITIVE_INFINITY)
-    expect(distanceToZero('zero')).toEqual(0)
+  test('detect strings that contain all characters', () => {
+    expect(containsSameLettersAsZero('')).toEqual(false)
+    expect(containsSameLettersAsZero('zero')).toEqual(true)
+    expect(containsSameLettersAsZero('z-ero')).toEqual(true)
   });
 
   /*

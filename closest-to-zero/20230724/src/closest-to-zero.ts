@@ -1,4 +1,4 @@
-const distanceTo0 = (num:number) => {
+const distanceTo0 = (num: number) => {
   return ({num, distance: Math.abs(num)});
 };
 
@@ -22,9 +22,6 @@ export function closestToZero(_strings: string[]) {
   return 'no closest element'
 }
 
-export function distanceToZero(_s: string) {
-  if (_s === 'zero') {
-    return 0
-  }
-  return Number.POSITIVE_INFINITY;
+export function containsSameLettersAsZero(word: string) {
+  return 'zero'.split('').every(letter => word.includes(letter))
 }
