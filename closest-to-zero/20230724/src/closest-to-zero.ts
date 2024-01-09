@@ -17,3 +17,11 @@ export function closestTo0(numbers: number[]) {
   }, {distance: Number.MAX_SAFE_INTEGER, num: Number.MAX_SAFE_INTEGER});
   return closest.num
 }
+
+export function closestToZero(_strings: string[]) {
+  return 'no closest element'
+}
+
+export function distanceToZero(_s: string) {
+  return Number.POSITIVE_INFINITY
+}

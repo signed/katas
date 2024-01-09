@@ -1,5 +1,5 @@
 import {describe, expect, test} from 'vitest'
-import {closestTo0} from './closest-to-zero.js'
+import {closestTo0, closestToZero, distanceToZero} from './closest-to-zero.js'
 
 describe('closest to 0', () => {
   test('empty list has no element closest to zero', () => {
@@ -22,14 +22,6 @@ describe('closest to 0', () => {
     expect(closestTo0([-1, 1])).toEqual(1)
   });
 });
-
-function closestToZero(_strings: string[]) {
-  return 'no closest element'
-}
-
-function distanceToZero(_s: string) {
-  return Number.POSITIVE_INFINITY
-}
 
 describe('closest to zero', () => {
   test('empty list does not contain a closest element', () => {
