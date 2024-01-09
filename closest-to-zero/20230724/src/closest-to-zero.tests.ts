@@ -22,3 +22,13 @@ describe('closest to 0', () => {
     expect(closestTo0([-1, 1])).toEqual(1)
   });
 });
+
+function closestToZero(_strings: string[]) {
+  return 'no closest element'
+}
+
+describe('closest to zero', () => {
+  test('empty list does not contain a closest element', () => {
+    expect(closestToZero([])).toEqual('no closest element')
+  });
+});
