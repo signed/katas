@@ -19,7 +19,8 @@ export function closestTo0(numbers: number[]) {
 }
 
 export function closestToZero(_strings: string[]) {
-  return 'no closest element'
+  const allLetters = _strings.filter(containsSameLettersAsZero);
+  return allLetters.length === 0 ? 'no closest element': allLetters[0]
 }
 
 export function containsSameLettersAsZero(word: string) {

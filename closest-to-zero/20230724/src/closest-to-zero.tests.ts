@@ -24,10 +24,19 @@ describe('closest to 0', () => {
 });
 
 describe('closest to zero', () => {
+  test('return zero as the closest string', () => {
+    expect(closestToZero(['zero'])).toEqual('zero')
+  });
+
   test('empty list does not contain a closest element', () => {
     expect(closestToZero([])).toEqual('no closest element')
   });
 
+  test('ignore strings that do not contain all letters', () => {
+    expect(closestToZero(['bogus'])).toEqual('no closest element')
+  });
+
+  //A word is close to “zero” if it contains the same letters.
   test('detect strings that contain all characters', () => {
     expect(containsSameLettersAsZero('')).toEqual(false)
     expect(containsSameLettersAsZero('zero')).toEqual(true)
@@ -35,7 +44,6 @@ describe('closest to zero', () => {
   });
 
   /*
-    A word is close to “zero” if it contains the same letters.
     If more than one word contains the same letters, choose the shortest one.
     If more than one is the same length, choose the one with the letters in the most similar order.
     If there is still a tie, choose the one that appeared first in the original list.
