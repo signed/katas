@@ -27,8 +27,16 @@ function closestToZero(_strings: string[]) {
   return 'no closest element'
 }
 
+function distanceToZero(_s: string) {
+  return Number.POSITIVE_INFINITY
+}
+
 describe('closest to zero', () => {
   test('empty list does not contain a closest element', () => {
     expect(closestToZero([])).toEqual('no closest element')
+  });
+
+  test('strings that do not contain the zero characters are not close at all', () => {
+    expect(distanceToZero('')).toEqual(Number.POSITIVE_INFINITY)
   });
 });
