@@ -18,9 +18,25 @@ export function closestTo0(numbers: number[]) {
   return closest.num
 }
 
-export function closestToZero(_strings: string[]) {
-  const allLetters = _strings.filter(containsSameLettersAsZero);
-  return allLetters.length === 0 ? 'no closest element': allLetters[0]
+export function closestToZero(words: string[]) {
+  const containAllLetters = words.filter(containsSameLettersAsZero);
+  if (containAllLetters.length === 0) {
+    return 'no closest element'
+  }
+  if (containAllLetters.length === 1) {
+    return containAllLetters[0];
+  }
+
+  const agg: { length: number, sameLengthWords: string[] } = {length: Number.POSITIVE_INFINITY, sameLengthWords: []};
+  const shortestResult = containAllLetters.map(word => ({word, length: word.length}))
+    .reduce((acc, curr) => {
+      if (curr.length < acc.length) {
+        return {length: curr.length, sameLengthWords: [curr.word]}
+      }
+      return acc;
+    }, agg);
+
+  return shortestResult.sameLengthWords[0]
 }
 
 export function containsSameLettersAsZero(word: string) {
