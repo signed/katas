@@ -9,6 +9,9 @@ export function closestToZero(numbers: number[]) {
     if (cur.distance < acc.distance) {
       return cur
     }
+    if (cur.distance === acc.distance && cur.num > acc.num) {
+      return cur
+    }
     return acc;
   }, {distance: Number.MAX_SAFE_INTEGER, num: Number.MAX_SAFE_INTEGER});
   return closest.num

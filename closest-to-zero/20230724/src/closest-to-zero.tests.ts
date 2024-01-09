@@ -13,3 +13,6 @@ test('return positive number closest to zero', () => {
   expect(closestToZero([1, 2])).toEqual(1)
 });
 
+test('return positive number in case there are two different numbers with the same distance to zero', () => {
+  expect(closestToZero([-1, 1])).toEqual(1)
+});
