@@ -23,5 +23,8 @@ export function closestToZero(_strings: string[]) {
 }
 
 export function distanceToZero(_s: string) {
-  return Number.POSITIVE_INFINITY
+  if (_s === 'zero') {
+    return 0
+  }
+  return Number.POSITIVE_INFINITY;
 }

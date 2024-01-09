@@ -30,6 +30,7 @@ describe('closest to zero', () => {
 
   test('strings that do not contain the zero characters are not close at all', () => {
     expect(distanceToZero('')).toEqual(Number.POSITIVE_INFINITY)
+    expect(distanceToZero('zero')).toEqual(0)
   });
 
   /*
