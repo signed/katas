@@ -8,10 +8,9 @@ export function closestToZero(numbers: number[]) {
   }
 
   const closest = numbers.map(distanceToZero).reduce((acc, cur) => {
-    if (cur.distance < acc.distance) {
-      return cur
-    }
-    if (cur.distance === acc.distance && cur.num > acc.num) {
+    const closerToZero = cur.distance < acc.distance;
+    const sameDistanceButPositiveNumber = cur.distance === acc.distance && cur.num > acc.num;
+    if (closerToZero || sameDistanceButPositiveNumber) {
       return cur
     }
     return acc;
